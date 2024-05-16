@@ -326,3 +326,36 @@ int main()
 }
 ```
 ![img](img/ex1.23-1.24.png)
+
+**1.23**
+```cpp
+#include<iostream>
+#include"Sales_item.h"
+
+/* count each identity isbn transcation, the input isbn must be ascending*/
+int main(){
+    Sales_item trans, total;
+    if (std::cin >> total)
+    {
+        while(std::cin >> trans)
+        {
+            if(trans.isbn() == total.isbn())
+            {
+                total += trans;
+            }
+            else
+            {
+                std::cout << "The total sales:" << total << std::endl;
+                total = trans;
+            }
+        }
+        std::cout << "The total sales:"<< total << std::endl;
+    }
+
+    return 0;
+}
+```
+
+**1.24** (skip)
+
+**1.25** the modified version of ex1.23. (skip)
