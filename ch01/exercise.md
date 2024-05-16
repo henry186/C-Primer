@@ -224,9 +224,105 @@ int main()
     return 0;
 }
 ```
+![img](img/ex1.17-1.19.png)
 **1.17**
 
-**1.18**
+1. cnt will be the number of numbers
+2. every input num will be printed "num occur 1 times" 
+
 **1.19**
+
+I amended the program to store the max of inputs and min of inputs, and output the input range int the end. 
+```cpp
+#include <iostream>
+
+int main()
+{
+    // currVal is the number we’re counting; we’ll read new values into val
+    int currVal = 0, val = 0, max, min;
+    // read first number and ensure that we have data to process
+    if (std::cin >> currVal)
+    {
+        int cnt = 1; // store the count for the current value we’re processing
+        max = currVal;
+        min = currVal;
+        while (std::cin >> val)
+        {                       // read the remaining numbers
+            if (val == currVal) // if the values are the same
+                ++cnt;          // add 1 to cnt
+            else
+            { // otherwise, print the count for the previous value
+                std::cout << currVal << " occurs "
+                          << cnt << " times" << std::endl;
+                currVal = val; // remember the new value
+                cnt = 1;       // reset the counter
+                if(currVal > max)
+                    max = currVal;
+                else if(currVal < min)
+                    min = currVal;
+            }
+        } // while loop ends here
+        // remember to print the count for the last value in the file
+        std::cout << currVal << " occurs "
+                  << cnt << " times" << std::endl;
+    } // outermost if statement ends here
+    std::cout << "The input range is between " << min << " and " << max << std::endl;
+    return 0;
+}
+```
+
 **1.20**
+
+```cpp
+#include <iostream>
+#include "Sales_item.h"
+
+int main()
+{
+    Sales_item book;
+    while(std::cin >> book)
+    {
+        std::cout << book << std::endl;
+    }
+
+    return 0;
+}
+```
+
 **1.21**
+```cpp
+#include <iostream>
+#include "Sales_item.h"
+
+int main()
+{
+    Sales_item book1, book2;
+    std::cin >> book1 >> book2;
+    
+    if(book1.isbn() == book2.isbn())
+        std::cout << book1 + book2 << std::endl;
+    
+
+    return 0;
+}
+```
+**1.22**
+```cpp
+#include <iostream>
+#include "Sales_item.h"
+using namespace std;
+
+int main()
+{
+    Sales_item book, sum;
+    std::cin >> sum;
+    while (std::cin >> book)
+    {
+            sum += book;
+    }
+    cout << sum << endl;
+
+    return 0;
+}
+```
+![img](img/ex1.23-1.24.png)
